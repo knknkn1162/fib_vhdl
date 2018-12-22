@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity fib is
-  generic(N : natural);
+  generic(N : natural := 50000000);
   port (
     clk, rst : in std_logic;
     hex0 : out std_logic_vector(6 downto 0);
