@@ -1,0 +1,10 @@
+*
+!Makefile
+!fizzbuzz.sdc
+!fizzbuzz.qpf
+!fizzbuzz.qws
+!*.*
+*.o
+*.vcd
+work-obj93.cf
+!*/*
