@@ -4,6 +4,7 @@ VCDFILE=${WORKDIR}/out.vcd
 FLAGS=--warn-error --workdir=${WORKDIR}/
 #TB_OPTION=--assert-level=error
 MODULES=\
+	decoder \
 	num2str10
 TESTS=\
 	num2str10

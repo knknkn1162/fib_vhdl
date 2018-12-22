@@ -1,9 +1,8 @@
 *
 !Makefile
-!fizzbuzz.sdc
-!fizzbuzz.qpf
-!fizzbuzz.qws
 !*.*
+fizzbuzz.qws
+fizzbuzz.qpf
 *.o
 *.vcd
 work-obj93.cf
