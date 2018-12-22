@@ -8,11 +8,13 @@ MODULES=\
 	dec2str \
 	enable_generator \
 	calc \
-	disp
+	disp \
+	fib
 TESTS=\
 	dec2str \
 	enable_generator \
-	calc
+	calc \
+	fib
 OBJS=$(addsuffix .o, ${MODULES})
 TESTBENCHES=$(addsuffix _tb, ${TESTS})
 
