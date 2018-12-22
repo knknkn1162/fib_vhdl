@@ -64,7 +64,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex5[4]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex5[5]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex5[6]
 
-set_location_assignment PIN_M9 -to clk
+set_location_assignment PIN_AB12 -to clk
 set_location_assignment PIN_P22 -to rst
 set_location_assignment PIN_U21 -to hex0[0]
 set_location_assignment PIN_V21 -to hex0[1]
