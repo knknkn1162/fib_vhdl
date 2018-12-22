@@ -6,9 +6,11 @@ FLAGS=--warn-error --workdir=${WORKDIR}/
 MODULES=\
 	decoder \
 	num2str10 \
+	enable_generator \
 	calc
 TESTS=\
 	num2str10 \
+	enable_generator \
 	calc
 OBJS=$(addsuffix .o, ${MODULES})
 TESTBENCHES=$(addsuffix _tb, ${TESTS})
