@@ -23,8 +23,12 @@ begin
     if not is_X(num) then
       n := to_integer(unsigned(num));
       for i in 0 to 5 loop
-        dec(i*4+3 downto i*4) <= std_logic_vector(to_unsigned(n-(n/10)*10, 4));
-        n := n/10;
+        if n = 0 then
+          dec(i*4+3 downto i*4) <= (others => 'X');
+        else
+          dec(i*4+3 downto i*4) <= std_logic_vector(to_unsigned(n-(n/10)*10, 4));
+          n := n/10;
+        end if;
       end loop;
     end if;
   end process;

@@ -35,10 +35,10 @@ begin
     wait for PERIOD/2;
     assert dec0 = "1001";
     assert dec1 = "0001";
-    assert dec2 = "0000";
-    assert dec3 = "0000";
-    assert dec4 = "0000";
-    assert dec5 = "0000";
+    assert dec2 = "XXXX";
+    assert dec3 = "XXXX";
+    assert dec4 = "XXXX";
+    assert dec5 = "XXXX";
     -- success message
     assert false report "end of test" severity note;
     wait;
