@@ -46,19 +46,21 @@ begin
   begin
     wait for clk_period*3;
     rst <= '1'; wait for 1 ns; rst <= '0';
-    assert hex0 = "1111001"; assert hex1 = "1111111"; -- 1
+    assert hex0 = "1111001"; assert hex1 = "1000000"; -- 1
     wait for clk_period*4; wait until rising_edge(clk); wait for 1 ns;
-    assert hex0 = "1111001"; assert hex1 = "1111111"; -- 1
+    assert hex0 = "1111001"; assert hex1 = "1000000"; -- 1
     wait for clk_period*4; wait until rising_edge(clk); wait for 1 ns;
-    assert hex0 = "0100100"; assert hex1 = "1111111"; -- 2
+    assert hex0 = "0100100"; assert hex1 = "1000000"; -- 2
     wait for clk_period*4; wait until rising_edge(clk); wait for 1 ns;
-    assert hex0 = "0110000"; assert hex1 = "1111111"; -- 3
+    assert hex0 = "0110000"; assert hex1 = "1000000"; -- 3
     wait for clk_period*4; wait until rising_edge(clk); wait for 1 ns;
-    assert hex0 = "0010010"; assert hex1 = "1111111"; -- 5
+    assert hex0 = "0010010"; assert hex1 = "1000000"; -- 5
     wait for clk_period*4; wait until rising_edge(clk); wait for 1 ns;
-    assert hex0 = "0000000"; assert hex1 = "1111111"; -- 8
+    assert hex0 = "0000000"; assert hex1 = "1000000"; -- 8
     wait for clk_period*4; wait until rising_edge(clk); wait for 1 ns;
-    assert hex0 = "0110000"; assert hex1 = "1111001"; -- 13
+    assert hex0 = "0100001"; assert hex1 = "1000000"; -- 13
+    wait for clk_period*4; wait until rising_edge(clk); wait for 1 ns;
+    assert hex0 = "0010010"; assert hex1 = "1111001"; -- 21
 
 
     
