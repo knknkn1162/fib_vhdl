@@ -39,13 +39,18 @@ architecture behavior of disp is
 begin
   dec2str0 : dec2str port map (
     num => num,
-    dec0 => s_dec(3 downto 0), dec1 => s_dec(7 downto 4), dec2 => s_dec(11 downto 8), dec3 => s_dec(15 downto 12), dec4 => s_dec(19 downto 16), dec5 => s_dec(23 downto 20)
+    dec0 => s_dec(3 downto 0),
+    dec1 => s_dec(7 downto 4),
+    dec2 => s_dec(11 downto 8),
+    dec3 => s_dec(15 downto 12),
+    dec4 => s_dec(19 downto 16),
+    dec5 => s_dec(23 downto 20)
   );
 
   gen_decoder : for i in 0 to 5 generate
     decoder0 : decoder port map (
       num => s_dec(i*4+3 downto i*4),
-      hex => s_hex(i*6+5 downto i*6)
+      hex => s_hex(i*7+6 downto i*7)
     );
   end generate;
 
