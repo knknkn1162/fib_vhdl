@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity num2str is
+entity dec2str is
   port (
     num : in std_logic_vector(19 downto 0);
     dec0 : out std_logic_vector(3 downto 0);
@@ -14,7 +14,7 @@ entity num2str is
   );
 end entity;
 
-architecture behavior of num2str is
+architecture behavior of dec2str is
   signal dec : std_logic_vector(23 downto 0);
 begin
   process(num)

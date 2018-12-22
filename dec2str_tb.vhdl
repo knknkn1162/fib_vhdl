@@ -2,11 +2,11 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity num2str10_tb is
+entity dec2str_tb is
 end entity;
 
-architecture testbench of num2str10_tb is
-  component num2str10
+architecture testbench of dec2str_tb is
+  component dec2str
     port (
       num : in std_logic_vector(19 downto 0);
       dec0 : out std_logic_vector(3 downto 0);
@@ -23,7 +23,7 @@ architecture testbench of num2str10_tb is
   signal PERIOD : time := 20 ns;
   
 begin
-  uut : num2str10 port map (
+  uut : dec2str port map (
     num => num,
     dec0 => dec0, dec1 => dec1, dec2 => dec2, dec3 => dec3, dec4 => dec4, dec5 => dec5
   );

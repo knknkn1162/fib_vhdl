@@ -5,11 +5,11 @@ FLAGS=--warn-error --workdir=${WORKDIR}/
 #TB_OPTION=--assert-level=error
 MODULES=\
 	decoder \
-	num2str10 \
+	dec2str \
 	enable_generator \
 	calc
 TESTS=\
-	num2str10 \
+	dec2str \
 	enable_generator \
 	calc
 OBJS=$(addsuffix .o, ${MODULES})
