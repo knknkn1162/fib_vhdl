@@ -44,9 +44,9 @@ begin
     wait until rising_edge(clk); wait for 1 ns;
     assert ena = '0';
     wait until rising_edge(clk); wait for 1 ns;
-    assert ena = '0';
-    wait until rising_edge(clk); wait for 1 ns;
     assert ena = '1';
+    wait until rising_edge(clk); wait for 1 ns;
+    assert ena = '0';
     -- skip
     stop <= TRUE;
     -- success message
