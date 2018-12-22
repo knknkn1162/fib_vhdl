@@ -7,7 +7,8 @@ MODULES=\
 	decoder \
 	dec2str \
 	enable_generator \
-	calc
+	calc \
+	disp
 TESTS=\
 	dec2str \
 	enable_generator \
