@@ -23,6 +23,12 @@ begin
       when "0111" => hex <= "1011000";
       when "1000" => hex <= "0000000";
       when "1001" => hex <= "0010000";
+      when "1010" => hex <= "0001000";
+      when "1011" => hex <= "0000011";
+      when "1100" => hex <= "1000110";
+      when "1101" => hex <= "0100001";
+      when "1110" => hex <= "0000110";
+      when "1111" => hex <= "0001110";
       when others => hex <= "1111111";
     end case;
   end process;
