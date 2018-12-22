@@ -34,7 +34,7 @@ architecture behavior of fib is
 
   component disp
     port (
-      num : in std_logic_vector(19 downto 0);
+      num : in std_logic_vector(23 downto 0);
       hex0 : out std_logic_vector(6 downto 0);
       hex1 : out std_logic_vector(6 downto 0);
       hex2 : out std_logic_vector(6 downto 0);
@@ -44,7 +44,7 @@ architecture behavior of fib is
     );
   end component;
 
-  constant SIZE : natural := 20;
+  constant SIZE : natural := 24;
   signal en : std_logic;
   signal num : std_logic_vector(SIZE-1 downto 0);
 

@@ -5,13 +5,11 @@ FLAGS=--warn-error --workdir=${WORKDIR}/
 #TB_OPTION=--assert-level=error
 MODULES=\
 	decoder \
-	dec2str \
 	enable_generator \
 	calc \
 	disp \
 	fib
 TESTS=\
-	dec2str \
 	enable_generator \
 	calc \
 	fib
