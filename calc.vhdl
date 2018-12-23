@@ -19,7 +19,9 @@ begin
     variable b, c : natural range 0 to 2**N-1 := 0;
   begin
     if rising_edge(clk) then
-      if en = '1' then
+      if rst = '1' then
+        a := 1; b := 0; c := 0;
+      elsif en = '1' then
         if a+b < 2**N-1 then
           c := b;
           b := a;
