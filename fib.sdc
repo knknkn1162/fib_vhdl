@@ -4,5 +4,5 @@ create_clock -name clk -period 20 [get_ports {clk}]
 derive_pll_clocks
 # calculate and apply setup and hold clock uncertainties for clock-to-clock transfers found in the design.
 derive_clock_uncertainty
-set_input_delay -clock {clk} 2.5 [all_inputs]
+set_input_delay -clock {clk} 1 [all_inputs]
 set_output_delay -clock {clk} 1 [all_outputs]
