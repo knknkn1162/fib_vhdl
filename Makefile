@@ -6,11 +6,13 @@ FLAGS=--warn-error --workdir=${WORKDIR}/
 MODULES=\
 	decoder \
 	enable_generator \
+	flopr_en \
 	calc \
 	disp \
 	fib
 TESTS=\
 	enable_generator \
+	flopr_en \
 	calc \
 	fib
 OBJS=$(addsuffix .o, ${MODULES})
@@ -20,13 +22,13 @@ TESTBENCHES=$(addsuffix _tb, ${TESTS})
 .PHONY: all clean open
 all: $(OBJS) $(TESTBENCHES)
 clean:
-	git ls-files --others --ignored --exclude-standard | xargs rm -rfv
+	rm -rf *.vcd *.o work-obj93.cf
 open:
 	open out.vcd
 
 %_tb: %_tb.o
 	$(GHDLC) -e $(FLAGS) $@
-	$(GHDLC) -r ${FLAGS} $@ --vcd=${VCDFILE} ${TB_OPTION}
+	$(GHDLC) -r ${FLAGS} $@ --vcd=${WORKDIR}/out_$@.vcd ${TB_OPTION}
 
 %.o: %.vhdl
 	$(GHDLC) -a $(FLAGS) $<
