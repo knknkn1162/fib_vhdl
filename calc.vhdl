@@ -12,27 +12,34 @@ entity calc is
 end entity;
 
 architecture behavior of calc is
+  component flopr_en
+    generic(N : natural);
+    port (
+      clk, rst, en: in std_logic;
+      load : in std_logic_vector(N-1 downto 0);
+      a : in std_logic_vector(N-1 downto 0);
+      y : out std_logic_vector(N-1 downto 0)
+    );
+  end component;
+
+  signal a, b, c : std_logic_vector(N-1 downto 0);
+  signal an, bn, cn : std_logic_vector(N-1 downto 0);
+  signal as, ys : std_logic_vector(3*N-1 downto 0);
+  constant CONST_ONE : std_logic_vector(N-1 downto 0) := (0 => '1', others => '0');
+  constant CONST_ZERO : std_logic_vector(N-1 downto 0) := (others => '0');
+  constant CONST_LOAD : std_logic_vector(3*N-1 downto 0) := CONST_ONE & CONST_ZERO & CONST_ZERO;
 begin
-  process(clk, rst)
-    -- NOTE: https://www.intel.com/content/www/us/en/programmable/support/support-resources/knowledge-base/solutions/rd01072011_91.html
-    variable a : natural range 0 to 2**N-1 := 1;
-    variable b, c : natural range 0 to 2**N-1 := 0;
-  begin
-    if rising_edge(clk) then
-      if rst = '1' then
-        a := 1; b := 0; c := 0;
-      elsif en = '1' then
-        if a+b < 2**N-1 then
-          c := b;
-          b := a;
-          a := c + b;
-        else
-          a := 0;
-          b := 0;
-          c := 0;
-        end if;
-      end if;
-    end if;
-    z <= std_logic_vector(to_unsigned(a, N));
-  end process;
+  flopr_en0 : flopr_en generic map(N=>3*N)
+  port map (
+    clk => clk, rst => rst, en => en,
+    load => CONST_LOAD,
+    a => as,
+    y => ys
+  );
+
+  a <= ys(3*N-1 downto 2*N); b <= ys(2*N-1 downto N); c <= ys(N-1 downto 0);
+  z <= a;
+
+  an <= std_logic_vector(unsigned(a) + unsigned(b)); bn <= a; cn <= b;
+  as <= an & bn & cn;
 end architecture;
