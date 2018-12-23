@@ -23,13 +23,13 @@ architecture behavior of calc is
   end component;
 
   signal a, b : std_logic_vector(N-1 downto 0);
-  signal an, bn, cn : std_logic_vector(N-1 downto 0);
-  signal as, ys : std_logic_vector(3*N-1 downto 0);
+  signal an, bn : std_logic_vector(N-1 downto 0);
+  signal as, ys : std_logic_vector(2*N-1 downto 0);
   constant CONST_ONE : std_logic_vector(N-1 downto 0) := (0 => '1', others => '0');
   constant CONST_ZERO : std_logic_vector(N-1 downto 0) := (others => '0');
-  constant CONST_LOAD : std_logic_vector(3*N-1 downto 0) := CONST_ONE & CONST_ZERO & CONST_ZERO;
+  constant CONST_LOAD : std_logic_vector(2*N-1 downto 0) := CONST_ONE & CONST_ZERO;
 begin
-  flopr_en0 : flopr_en generic map(N=>3*N)
+  flopr_en0 : flopr_en generic map(N=>2*N)
   port map (
     clk => clk, rst => rst, en => en,
     load => CONST_LOAD,
@@ -37,9 +37,9 @@ begin
     y => ys
   );
 
-  a <= ys(3*N-1 downto 2*N); b <= ys(2*N-1 downto N); c <= ys(N-1 downto 0);
+  a <= ys(2*N-1 downto N); b <= ys(N-1 downto 0);
   z <= a;
 
-  an <= std_logic_vector(unsigned(a) + unsigned(b)); bn <= a; cn <= b;
-  as <= an & bn & cn;
+  an <= std_logic_vector(unsigned(a) + unsigned(b)); bn <= a;
+  as <= an & bn;
 end architecture;
