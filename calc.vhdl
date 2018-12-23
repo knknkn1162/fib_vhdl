@@ -22,7 +22,7 @@ architecture behavior of calc is
     );
   end component;
 
-  signal a, b, c : std_logic_vector(N-1 downto 0);
+  signal a, b : std_logic_vector(N-1 downto 0);
   signal an, bn, cn : std_logic_vector(N-1 downto 0);
   signal as, ys : std_logic_vector(3*N-1 downto 0);
   constant CONST_ONE : std_logic_vector(N-1 downto 0) := (0 => '1', others => '0');

@@ -14,7 +14,7 @@ end entity;
 
 architecture behavior of flopr_en is
 begin
-  process(clk, rst) begin
+  process(clk, rst, load) begin
     if rst='1' then
       y <= load;
     elsif rising_edge(clk) then
